@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: uber_eat_demo #应用的名称，可选
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=America/New_York&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: root
+mybatis-plus:
+  #配置项用于配置 MyBatis 的全局配置
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    #指定 MyBatis 使用的日志实现，表示日志输出将打印到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #配置 MyBatis Plus 的全局参数
+  global-config:
+    db-config:
+      #表示采用手动分配的方式来指定主键值。这通常与 MyBatis Plus 提供的主键生成策略配合使用
+      id-type: ASSIGN_ID
